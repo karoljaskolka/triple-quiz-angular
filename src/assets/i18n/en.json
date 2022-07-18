@@ -1,1 +1,23 @@
-{}
+{
+  "home": {
+    "login": "Login",
+    "register": "Register",
+    "form": {
+      "username": "Username",
+      "password": "Password",
+      "confirm-password": "Confirm password"
+    },
+    "actions": {
+      "login": "Login",
+      "guest": "Play as a guest",
+      "register": "Sign Up"
+    }
+  },
+  "error": {
+    "form": {
+      "required": "Field is required",
+      "password-minlength": "Password must contain at least {{length}} characters",
+      "password-match": "Confirm password does not match password"
+    }
+  }
+}

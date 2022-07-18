@@ -1,0 +1,53 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <tq-form-title>
+    {{ "home.login" | translate }}
+  </tq-form-title>
+  <tq-text-input
+    class="mb-5"
+    type="text"
+    formControlName="login"
+    [label]="'home.form.username' | translate"
+    [placeholder]="'home.form.username' | translate"
+  >
+    <ng-container *ngIf="login.dirty">
+      <span *ngIf="login.errors?.['required']">
+        {{ "error.form.required" | translate }}
+      </span>
+    </ng-container>
+  </tq-text-input>
+  <tq-text-input
+    class="mb-10"
+    type="password"
+    formControlName="password"
+    [label]="'home.form.password' | translate"
+    [placeholder]="'home.form.password' | translate"
+  >
+    <ng-container *ngIf="password.dirty">
+      <span *ngIf="password.errors?.['required']">
+        {{ "error.form.required" | translate }}
+      </span>
+    </ng-container>
+  </tq-text-input>
+  <div class="mb-10 flex flex-col">
+    <button
+      class="mb-5 py-2 px-3 flex-1 bg-tertiary rounded-md text-primary font-bold uppercase disabled:bg-opacity-50 hover:bg-opacity-75"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      {{ "home.actions.login" | translate }}
+    </button>
+    <button
+      class="py-2 px-3 flex-1 bg-primary border-tertiary border-2 rounded-md text-tertiary font-bold uppercase hover:bg-tertiary hover:text-primary"
+      type="button"
+      (click)="guest()"
+    >
+      {{ "home.actions.guest" | translate }}
+    </button>
+  </div>
+  <a
+    routerLink="register"
+    class="block text-tertiary text-center hover:underline"
+  >
+    {{ "home.actions.register" | translate }}
+  </a>
+</form>

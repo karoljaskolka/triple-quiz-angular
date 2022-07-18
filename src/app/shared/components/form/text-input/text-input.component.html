@@ -1,0 +1,20 @@
+<div>
+  <label *ngIf="label" class="mb-1 block text-sm">
+    <span data-testid-label-span>{{ label }}</span>
+    <span *ngIf="mandatory" data-testid-label-asterisk class="text-red"
+      >&nbsp;*</span
+    >
+  </label>
+  <input
+    data-testid-input
+    class="py-2 px-3 block w-full outline-none bg-secondary rounded-md placeholder:text-opacity-50"
+    [type]="type"
+    [value]="value"
+    [placeholder]="placeholder"
+    (input)="onChange($event)"
+    (focus)="onFocus()"
+  />
+  <div class="text-red text-sm">
+    <ng-content></ng-content>
+  </div>
+</div>

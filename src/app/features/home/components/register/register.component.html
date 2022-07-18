@@ -1,0 +1,66 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <tq-form-title>
+    {{ "home.register" | translate }}
+  </tq-form-title>
+  <tq-text-input
+    class="mb-5"
+    type="text"
+    formControlName="login"
+    [label]="'home.form.username' | translate"
+    [placeholder]="'home.form.username' | translate"
+    [mandatory]="true"
+  >
+    <ng-container *ngIf="login.dirty">
+      <span *ngIf="login.errors?.['required']">
+        {{ "error.form.required" | translate }}
+      </span>
+    </ng-container>
+  </tq-text-input>
+  <tq-text-input
+    class="mb-5"
+    type="password"
+    formControlName="password"
+    [label]="'home.form.password' | translate"
+    [placeholder]="'home.form.password' | translate"
+    [mandatory]="true"
+  >
+    <ng-container *ngIf="password.dirty">
+      <span *ngIf="password.errors?.['required']">
+        {{ "error.form.required" | translate }}
+      </span>
+      <span *ngIf="password.errors?.['minlength']">
+        {{ 'error.form.password-minlength' | translate : { length: password.errors?.['minlength'].requiredLength } }}
+      </span>
+    </ng-container>
+  </tq-text-input>
+  <tq-text-input
+    class="mb-10"
+    type="password"
+    formControlName="confirmPassword"
+    [label]="'home.form.confirm-password' | translate"
+    [placeholder]="'home.form.confirm-password' | translate"
+    [mandatory]="true"
+  >
+    <ng-container *ngIf="confirmPassword.dirty">
+      <span *ngIf="confirmPassword.errors?.['required']">
+        {{ "error.form.required" | translate }}
+      </span>
+      <span *ngIf="confirmPassword.errors?.['minlength']">
+        {{ 'error.form.password-minlength' | translate : { length: confirmPassword.errors?.['minlength'].requiredLength } }}
+      </span>
+      <span *ngIf="confirmPassword.errors?.['matchPassword']">
+        {{ "error.form.password-match" | translate }}
+      </span>
+    </ng-container>
+  </tq-text-input>
+  <button
+    class="py-2 px-3 bg-tertiary text-primary uppercase disabled:bg-opacity-50 w-full rounded-md mb-10"
+    type="submit"
+    [disabled]="!form.valid"
+  >
+    {{ "home.actions.register" | translate }}
+  </button>
+  <a routerLink="" class="block text-tertiary text-center hover:underline">
+    {{ "home.actions.login" | translate }}
+  </a>
+</form>

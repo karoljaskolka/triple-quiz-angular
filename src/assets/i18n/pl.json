@@ -1,1 +1,23 @@
-{}
+{
+  "home": {
+    "login": "Logowanie",
+    "register": "Rejestracja",
+    "form": {
+      "username": "Login",
+      "password": "Hasło",
+      "confirm-password": "Potwierdź hasło"
+    },
+    "actions": {
+      "login": "Zaloguj się",
+      "guest": "Graj jako gość",
+      "register": "Zarejestruj się"
+    }
+  },
+  "error": {
+    "form": {
+      "required": "Pole jest wymagane",
+      "password-minlength": "Hasło musi zawierać przynajmniej {{length}} znaków",
+      "password-match": "Podane hasła są różne"
+    }
+  }
+}

@@ -3,11 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     colors: {
-      black: "#1E2022",
-      gray: "#C9D6DF",
-      "dark-gray": "#52616B",
-      white: "#F0F5F9",
-      yellow: "#E1B12C",
+      primary: "#303841",
+      secondary: "#3A4750",
+      tertiary: "#C5A51B",
+      complementry: "#EEEEEE",
+      white: "#FFFFFF",
       red: "#C23616",
       green: "#44BD32",
     },
