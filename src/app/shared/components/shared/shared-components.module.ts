@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { TranslationComponent } from './translation/translation.component';
 import { ContainerComponent } from './container/container.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
-const COMPONENTS = [TranslationComponent, ContainerComponent];
+const COMPONENTS = [TranslationComponent, ContainerComponent, SpinnerComponent];
 
 @NgModule({
   declarations: [COMPONENTS],

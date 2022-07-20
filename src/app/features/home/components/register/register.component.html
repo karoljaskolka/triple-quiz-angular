@@ -58,7 +58,10 @@
     type="submit"
     [disabled]="!form.valid"
   >
-    {{ "home.actions.register" | translate }}
+    <tq-spinner *ngIf="loading$ | async; else registerText"></tq-spinner>
+    <ng-template #registerText>{{
+      "home.actions.register" | translate
+    }}</ng-template>
   </button>
   <a routerLink="" class="block text-tertiary text-center hover:underline">
     {{ "home.actions.login" | translate }}

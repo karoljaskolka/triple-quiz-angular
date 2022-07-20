@@ -9,7 +9,8 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
-import { SharedFormComponentsModule } from 'src/app/shared/components/form/shared-form-components.module';
+import { SharedFormComponentsModule } from '../../shared/components/form/shared-form-components.module';
+import { SharedComponentsModule } from '../../shared/components/shared/shared-components.module';
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, RegisterComponent],
@@ -18,6 +19,7 @@ import { SharedFormComponentsModule } from 'src/app/shared/components/form/share
     HomeRoutingModule,
     TranslateModule,
     SharedFormComponentsModule,
+    SharedComponentsModule,
     ReactiveFormsModule,
   ],
 })

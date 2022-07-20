@@ -12,6 +12,8 @@ import { matchPassword } from '../../../../utils/validators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
+  loading$ = this.authService.loading$;
+
   form: FormGroup = new FormGroup(
     {
       login: new FormControl(null, [Validators.required]),

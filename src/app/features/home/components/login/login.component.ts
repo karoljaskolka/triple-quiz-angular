@@ -13,6 +13,8 @@ import { Role } from '../../../../core/types/role';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  loading$ = this.authService.loading$;
+
   form: FormGroup = new FormGroup({
     login: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),

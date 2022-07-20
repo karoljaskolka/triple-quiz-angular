@@ -1,0 +1,16 @@
+<div class="w-full flex justify-center">
+  <div
+    data-testid-spinner
+    class="spinner"
+    [class.w-6]="size === 'sm'"
+    [class.h-6]="size === 'sm'"
+    [class.w-12]="size === 'lg'"
+    [class.h-12]="size === 'lg'"
+    [class.border-4]="size === 'sm'"
+    [class.border-8]="size === 'lg'"
+    [class.border-secondary]="!reverse"
+    [class.border-t-complementary]="!reverse"
+    [class.border-complementary]="reverse"
+    [class.border-t-secondary]="reverse"
+  ></div>
+</div>
