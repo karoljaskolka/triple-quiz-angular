@@ -1,0 +1,11 @@
+<div
+  data-testid-notifications
+  *ngIf="notifications.length"
+  class="p-5 overflow-hidden"
+>
+  <tq-notification
+    class="mb-5"
+    *ngFor="let notification of notifications; trackBy: trackById"
+    [notification]="notification"
+  ></tq-notification>
+</div>
