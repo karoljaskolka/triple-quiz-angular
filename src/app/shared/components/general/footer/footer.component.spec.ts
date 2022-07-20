@@ -1,28 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [FooterComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(FooterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spec: Spectator<FooterComponent>;
+  const createComponent = createComponentFactory({
+    component: FooterComponent,
+    detectChanges: false,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => {
+    spec = createComponent();
+    spec.detectChanges();
   });
 
-  it('should create footer tag', () => {
-    const footer = fixture.debugElement.query(By.css('footer'));
+  it('should create component', () => {
+    expect(spec.component).toBeTruthy();
+  });
+
+  it('should create footer element', () => {
+    const footer = spec.query('footer');
 
     expect(footer).toBeTruthy();
   });

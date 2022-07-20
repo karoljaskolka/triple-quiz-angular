@@ -1,0 +1,9 @@
+<button
+  *ngFor="let locale of LOCALES"
+  data-testid-button
+  class="ml-4 first:ml-0"
+  [class.text-tertiary]="locale === currentLang"
+  (click)="setLanguage(locale)"
+>
+  {{ locale | uppercase }}
+</button>

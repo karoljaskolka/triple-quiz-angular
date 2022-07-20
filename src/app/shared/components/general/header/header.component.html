@@ -1,1 +1,7 @@
-<header class="p-5 font-press-start">TRIPLE QUIZ</header>
+<header class="p-5 font-press-start flex justify-between">
+  <a data-testid-logo [routerLink]="['/']">
+    <fa-icon [icon]="faAngular" size="lg"></fa-icon>
+    <span class="ml-2">TRIPLE QUIZ</span>
+  </a>
+  <tq-language-switch></tq-language-switch>
+</header>

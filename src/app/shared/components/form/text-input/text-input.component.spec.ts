@@ -1,78 +1,80 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { SpectatorHost, createHostFactory } from '@ngneat/spectator/jest';
+import { HostControlMockComponent } from '../../../../utils/mocks/host-control.component.mock';
 import { TextInputComponent } from './text-input.component';
 
 describe('TextInputComponent', () => {
-  let component: TextInputComponent;
-  let fixture: ComponentFixture<TextInputComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [TextInputComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(TextInputComponent);
-    component = fixture.componentInstance;
-    component.label = 'Label';
-    component.mandatory = true;
-    component.value = 'SomeValue';
-    component.placeholder = 'SomePlaceholder';
-    component.type = 'password';
-    fixture.detectChanges();
+  let spec: SpectatorHost<TextInputComponent, HostControlMockComponent>;
+  const createHost = createHostFactory({
+    component: TextInputComponent,
+    imports: [ReactiveFormsModule],
+    detectChanges: false,
+    host: HostControlMockComponent,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => {
+    spec = createHost(`
+      <tq-text-input
+        [formControl]="control"
+        [mandatory]="true"
+        type="password"
+        label="ControlLabel"
+        placeholder="ControlPlaceholder"
+      ></tq-text-input>
+    `);
+    spec.detectChanges();
   });
 
-  it('should emit event on input', async () => {
-    const input = fixture.debugElement.query(By.css('[data-testid-input]'));
+  it('should create component', () => {
+    expect(spec.component).toBeTruthy();
+  });
 
-    const onChangeSpy = jest.spyOn(component, 'onChange');
+  it('should emit event on input and update host control', async () => {
+    const input = spec.query('[data-testid-input]') as Element;
+    const onChangeSpy = jest.spyOn(spec.component, 'onChange');
 
-    input.triggerEventHandler('input', { target: { value: 'NewValue' } });
-
-    fixture.detectChanges();
+    spec.typeInElement('NewValue', input);
+    spec.detectChanges();
 
     expect(onChangeSpy).toHaveBeenCalled();
-    expect(onChangeSpy).toHaveBeenCalledWith({ target: { value: 'NewValue' } });
+    expect(spec.hostComponent.control.value).toEqual('NewValue');
   });
 
   it('should render label text passed as prop', async () => {
-    const labelSpan = fixture.debugElement.query(
-      By.css('[data-testid-label-span]')
-    )?.nativeElement as HTMLSpanElement;
+    const labelSpan = spec.query('[data-testid-label-span]');
 
-    expect(labelSpan.textContent).toMatch('Label');
+    expect(labelSpan).toHaveText('ControlLabel');
   });
 
   it('should render asterisk when mandatory passed as prop', async () => {
-    const labelAsterisk = fixture.debugElement.query(
-      By.css('[data-testid-label-asterisk]')
-    )?.nativeElement as HTMLSpanElement;
+    const labelAsterisk = spec.query('[data-testid-label-asterisk]');
 
-    expect(labelAsterisk.textContent).toMatch('*');
+    expect(labelAsterisk).toHaveText('*');
   });
 
-  it('should set input value when passed as prop', async () => {
-    const input = fixture.debugElement.query(By.css('[data-testid-input]'))
-      ?.nativeElement as HTMLInputElement;
+  it('should set component value as given', async () => {
+    spec.component.writeValue('ControlWriteValue');
+    spec.detectChanges();
 
-    expect(input.value).toMatch('SomeValue');
+    expect(spec.component.value).toEqual('ControlWriteValue');
+  });
+
+  it('should set component value as null', async () => {
+    spec.component.writeValue(null);
+    spec.detectChanges();
+
+    expect(spec.component.value).toEqual(null);
   });
 
   it('should set input type when passed as prop', async () => {
-    const input = fixture.debugElement.query(By.css('[data-testid-input]'))
-      ?.nativeElement as HTMLInputElement;
+    const input = spec.query('[data-testid-input]');
 
-    expect(input.type).toMatch('password');
+    expect(input).toHaveAttribute('type', 'password');
   });
 
   it('should set input placeholder when passed as prop', async () => {
-    const input = fixture.debugElement.query(By.css('[data-testid-input]'))
-      ?.nativeElement as HTMLInputElement;
+    const input = spec.query('[data-testid-input]');
 
-    expect(input.placeholder).toMatch('SomePlaceholder');
+    expect(input).toHaveAttribute('placeholder', 'ControlPlaceholder');
   });
 });

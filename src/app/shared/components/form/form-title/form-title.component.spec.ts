@@ -1,45 +1,31 @@
-import { Component } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-
+import { Spectator, createHostFactory } from '@ngneat/spectator/jest';
 import { FormTitleComponent } from './form-title.component';
 
-@Component({
-  template: `<tq-form-title>FORM TITLE</tq-form-title>`,
-})
-class FormTitleHostComponent {}
-
 describe('FormTitleComponent', () => {
-  let component: FormTitleComponent;
-  let fixture: ComponentFixture<FormTitleComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [FormTitleComponent, FormTitleHostComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(FormTitleComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spec: Spectator<FormTitleComponent>;
+  const createHost = createHostFactory({
+    component: FormTitleComponent,
+    detectChanges: false,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => {
+    spec = createHost('<tq-form-title>FORM TITLE</tq-form-title>');
+    spec.detectChanges();
   });
 
-  it('should create h1 tag', () => {
-    const h1 = fixture.debugElement.query(By.css('h1'));
+  it('should create component', () => {
+    expect(spec.component).toBeTruthy();
+  });
+
+  it('should create h1 element', () => {
+    const h1 = spec.query('h1');
 
     expect(h1).toBeTruthy();
   });
 
   it('should render <ng-content> content', () => {
-    const hostFixture = TestBed.createComponent(FormTitleHostComponent);
+    const title = spec.query('[data-testid-form-title]');
 
-    const host = hostFixture.debugElement.query(
-      By.css('[data-testid-form-title]')
-    ).nativeElement;
-
-    expect(host.textContent).toEqual('FORM TITLE');
+    expect(title).toHaveText('FORM TITLE');
   });
 });

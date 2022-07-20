@@ -5,7 +5,7 @@ import { NotificationType } from '../../../../core/types/notification-type';
 import { NotificationComponent } from './notification.component';
 
 describe('NotificationComponent', () => {
-  let component: Spectator<NotificationComponent>;
+  let spec: Spectator<NotificationComponent>;
   const createComponent = createComponentFactory({
     component: NotificationComponent,
     declarations: [TranslateMockPipe],
@@ -13,21 +13,21 @@ describe('NotificationComponent', () => {
   });
 
   beforeEach(() => {
-    component = createComponent();
-    component.detectChanges();
+    spec = createComponent();
+    spec.detectChanges();
   });
 
   it('should create component', () => {
-    expect(component).toBeTruthy();
+    expect(spec.component).toBeTruthy();
   });
 
   it('should render error message', () => {
-    component.setInput('notification', {
+    spec.setInput('notification', {
       message: 'error-message',
       type: NotificationType.Error,
     } as NotificationDto);
 
-    const div = component.query('[data-testid-notification]');
+    const div = spec.query('[data-testid-notification]');
 
     expect(div).toHaveText('error-message');
     expect(div).toHaveClass('bg-red');
@@ -35,12 +35,12 @@ describe('NotificationComponent', () => {
   });
 
   it('should render success message', () => {
-    component.setInput('notification', {
+    spec.setInput('notification', {
       message: 'success-message',
       type: NotificationType.Success,
     } as NotificationDto);
 
-    const div = component.query('[data-testid-notification]');
+    const div = spec.query('[data-testid-notification]');
 
     expect(div).toHaveText('success-message');
     expect(div).toHaveClass('bg-green');
@@ -48,12 +48,12 @@ describe('NotificationComponent', () => {
   });
 
   it('should render warning message', () => {
-    component.setInput('notification', {
+    spec.setInput('notification', {
       message: 'warning-message',
       type: NotificationType.Warning,
     } as NotificationDto);
 
-    const div = component.query('[data-testid-notification]');
+    const div = spec.query('[data-testid-notification]');
 
     expect(div).toHaveText('warning-message');
     expect(div).toHaveClass('bg-tertiary');
@@ -61,9 +61,9 @@ describe('NotificationComponent', () => {
   });
 
   it('should handle notification without message', () => {
-    component.setInput('notification', {} as NotificationDto);
+    spec.setInput('notification', {} as NotificationDto);
 
-    const div = component.query('[data-testid-notification]');
+    const div = spec.query('[data-testid-notification]');
 
     expect(div).toHaveText('error.unknown');
   });

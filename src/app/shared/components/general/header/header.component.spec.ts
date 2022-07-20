@@ -1,29 +1,41 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spec: Spectator<HeaderComponent>;
+  const createComponent = createComponentFactory({
+    component: HeaderComponent,
+    imports: [RouterTestingModule],
+    shallow: true,
+    detectChanges: false,
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => {
+    spec = createComponent();
+    spec.detectChanges();
   });
 
-  it('should create header tag', () => {
-    const header = fixture.debugElement.query(By.css('header'));
+  it('should create component', () => {
+    expect(spec.component).toBeTruthy();
+  });
+
+  it('should create header element', () => {
+    const header = spec.query('header');
 
     expect(header).toBeTruthy();
+  });
+
+  it('should create a element with redirect to /', () => {
+    const a = spec.query('a[data-testid-logo]');
+
+    expect(a).toBeTruthy();
+    expect(a).toHaveAttribute('href', '/');
+  });
+
+  it('should create logo icon', () => {
+    const icon = spec.query('a[data-testid-logo] > fa-icon');
+
+    expect(icon).toBeTruthy();
   });
 });
