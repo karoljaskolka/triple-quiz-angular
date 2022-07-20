@@ -1,4 +1,9 @@
 {
+  "general": {
+    "error": "Błąd",
+    "warning": "Ostrzeżenie",
+    "success": "Sukces"
+  },
   "home": {
     "login": "Logowanie",
     "register": "Rejestracja",
@@ -14,10 +19,28 @@
     }
   },
   "error": {
+    "unknown": "Wystąpił nieznany błąd",
+    "internal-server-error": "Błąd serwera",
+    "not-found": "Nie znaleziono zasobu",
+    "auth": {
+      "unauthorized": "Nieautoryzowany dostęp",
+      "login-taken": "Podany login jest już zajęty",
+      "forbidden": "Dostęp zabroniony",
+      "wrong-login-or-password": "Nieprawidłowy login lub hasło"
+    },
     "form": {
       "required": "Pole jest wymagane",
       "password-minlength": "Hasło musi zawierać przynajmniej {{length}} znaków",
       "password-match": "Podane hasła są różne"
     }
+  },
+  "warning": {
+    "access-denied": "Brak dostępu",
+    "not-guest-access": "Dostęp tylko dla użytkowników"
+  },
+  "success": {
+    "login": "Witaj!",
+    "guest": "Witaj tajemnicza osobo ;)",
+    "register": "Konto zostało utworzone"
   }
 }

@@ -1,4 +1,9 @@
 {
+  "general": {
+    "error": "Error",
+    "warning": "Warning",
+    "success": "Success"
+  },
   "home": {
     "login": "Login",
     "register": "Register",
@@ -14,10 +19,28 @@
     }
   },
   "error": {
+    "unknown": "Unknown error occured",
+    "internal-server-error": "Internal server error",
+    "not-found": "Resource not found",
+    "auth": {
+      "unauthorized": "Access unauthorized",
+      "login-taken": "Login has been already taken",
+      "forbidden": "Access forbidden",
+      "wrong-login-or-password": "Wrong login or password"
+    },
     "form": {
       "required": "Field is required",
       "password-minlength": "Password must contain at least {{length}} characters",
       "password-match": "Confirm password does not match password"
     }
+  },
+  "warning": {
+    "access-denied": "Access denied",
+    "not-guest-access": "Access only for users"
+  },
+  "success": {
+    "login": "Welcome!",
+    "guest": "Welcome mysterious person ;)",
+    "register": "Account has been created"
   }
 }
