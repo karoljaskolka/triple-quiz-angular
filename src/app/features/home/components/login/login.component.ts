@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { TokenService } from 'src/app/core/services/token.service';
-import { role } from 'src/app/core/types/role';
+import { AuthService } from '../../../../core/services/auth.service';
+import { NotificationService } from '../../../../core/services/notification.service';
+import { TokenService } from '../../../../core/services/token.service';
+import { Role } from '../../../../core/types/role';
 
 @Component({
   selector: 'tq-login',
@@ -20,7 +21,8 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
   get login() {
@@ -32,32 +34,24 @@ export class LoginComponent {
   }
 
   submit() {
-    this.authService.login(this.form.value).subscribe({
-      next: (res) => {
-        this.tokenService.setToken(res.token);
-        this.redirectUser(this.tokenService.getUserRole());
-      },
-      error: (err) => {
-        console.error(err.error.error_message);
-      },
+    this.authService.login(this.form.value).subscribe((res) => {
+      this.tokenService.setToken(res.token);
+      this.redirectUser(this.tokenService.getUserRole());
+      this.notificationService.success('success.login');
     });
   }
 
   guest() {
-    this.authService.guest().subscribe({
-      next: (res) => {
-        this.tokenService.setToken(res.token);
-        this.router.navigate(['/quizzes']);
-      },
-      error: (err) => {
-        console.error(err.error.error_message);
-      },
+    this.authService.guest().subscribe((res) => {
+      this.tokenService.setToken(res.token);
+      this.router.navigate(['/quizzes']);
+      this.notificationService.success('success.guest');
     });
   }
 
-  redirectUser(role: role | null) {
+  redirectUser(role: Role | null) {
     if (!role) return;
-    if (role === 'ROLE_ADMIN') {
+    if (role === Role.ROLE_ADMIN) {
       this.router.navigate(['/admin']);
     } else {
       this.router.navigate(['/quizzes']);

@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
-import { matchPassword } from 'src/app/utils/validators';
+import { AuthService } from '../../../../core/services/auth.service';
+import { NotificationService } from '../../../../core/services/notification.service';
+import { matchPassword } from '../../../../utils/validators';
 
 @Component({
   selector: 'tq-register',
@@ -26,7 +27,11 @@ export class RegisterComponent {
     matchPassword('password', 'confirmPassword')
   );
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   get login() {
     return this.form.controls['login'];
@@ -45,13 +50,9 @@ export class RegisterComponent {
       login: this.login.value,
       password: this.password.value,
     };
-    this.authService.register(data).subscribe({
-      next: () => {
-        this.router.navigate(['/']);
-      },
-      error: (err) => {
-        console.error(err.error.error_message);
-      },
+    this.authService.register(data).subscribe(() => {
+      this.router.navigate(['/']);
+      this.notificationService.success('success.register');
     });
   }
 }

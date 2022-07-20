@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TokenClaimsDto } from '../dtos/token-claims';
-import { role } from '../types/role';
+import { Role } from '../types/role';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class TokenService {
     localStorage.removeItem('jwt_token');
   }
 
-  getUserRole(): role | null {
+  getUserRole(): Role | null {
     const token = this.getToken();
     return token ? (jwt_decode(token) as TokenClaimsDto).userRole : null;
   }
