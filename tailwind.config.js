@@ -19,4 +19,14 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: [
+    "hover:bg-primary",
+    "hover:bg-secondary",
+    "hover:bg-tertiary",
+    "hover:bg-complementary",
+    "hover:text-primary",
+    "hover:text-secondary",
+    "hover:text-tertiary",
+    "hover:text-complementary",
+  ],
 };

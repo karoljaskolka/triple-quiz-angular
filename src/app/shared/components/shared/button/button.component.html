@@ -1,0 +1,6 @@
+<span data-testid-content *ngIf="!loading; else spinner">
+  <ng-content></ng-content>
+</span>
+<ng-template #spinner>
+  <tq-spinner data-testid-spinner></tq-spinner>
+</ng-template>
