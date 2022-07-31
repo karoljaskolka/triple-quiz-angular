@@ -4,3 +4,8 @@
 
 @import "body";
 @import "fonts";
+@import "mixins";
+
+.full-page {
+  @include full-page;
+}
