@@ -1,26 +1,13 @@
-<div class="px-5 py-12 bg-secondary text-center">
-  <h1 class="text-2xl font-bold mb-8 animate-fade">
-    {{ "quizzes.header" | translate }}
-  </h1>
-  <fa-icon [icon]="faGraduationCap" size="3x" class="animate-fade"></fa-icon>
-  <p class="max-w-xl mx-auto mt-8 animate-fade">
-    {{ "quizzes.description" | translate }}
-  </p>
-</div>
+<tq-quizzes-header></tq-quizzes-header>
 <tq-container>
-  <div class="p-5" *ngIf="quizzes$ | async as quizzes; else loader">
-    <div class="-m-2 flex flex-wrap">
-      <div
-        class="p-2 w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
-        *ngFor="let quiz of quizzes"
-      >
-        <tq-quiz-item [quiz]="quiz"></tq-quiz-item>
-      </div>
-    </div>
-  </div>
-  <ng-template #loader>
-    <div class="p-5 flex items-center justify-center h-64">
-      <tq-spinner size="lg"></tq-spinner>
-    </div>
-  </ng-template>
+  <tq-quiz-items
+    *ngIf="quizzes$ | async as quizzes; else loader"
+    class="block p-5"
+    [quizzes]="quizzes"
+  ></tq-quiz-items>
 </tq-container>
+<ng-template #loader>
+  <div class="p-5 flex items-center justify-center h-64">
+    <tq-spinner size="lg"></tq-spinner>
+  </div>
+</ng-template>

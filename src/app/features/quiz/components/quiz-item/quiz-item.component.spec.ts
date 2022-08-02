@@ -1,7 +1,7 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { TranslateService } from '@ngx-translate/core';
-import { QuizDto } from 'src/app/core/dtos/quiz';
+import { QuizDto } from '../../../../core/dtos/quiz';
 import { AnchorComponent } from '../../../../shared/components/shared/button/button.component';
 import { TranslationComponent } from '../../../../shared/components/shared/translation/translation.component';
 import { TranslateMockPipe } from '../../../../utils/mocks/translate.pipe.mock';

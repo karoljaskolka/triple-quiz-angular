@@ -7,7 +7,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { QuestionDto } from 'src/app/core/dtos/question';
+import { QuestionDto } from '../../../../core/dtos/question';
 
 @Component({
   selector: 'tq-answers',

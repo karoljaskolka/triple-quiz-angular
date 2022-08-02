@@ -14,7 +14,9 @@ import { AnswersComponent } from './components/answers/answers.component';
 import { RiddleComponent } from './components/riddle/riddle.component';
 import { TimerComponent } from './components/timer/timer.component';
 import { ScoreDialogComponent } from './components/score-dialog/score-dialog.component';
-import { SharedDirectivesModule } from 'src/app/shared/directives/shared-directives.module';
+import { SharedDirectivesModule } from '../../shared/directives/shared-directives.module';
+import { QuizzesHeaderComponent } from './components/quizzes-header/quizzes-header.component';
+import { QuizItemsComponent } from './components/quiz-items/quiz-items.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { SharedDirectivesModule } from 'src/app/shared/directives/shared-directi
     RiddleComponent,
     TimerComponent,
     ScoreDialogComponent,
+    QuizzesHeaderComponent,
+    QuizItemsComponent,
   ],
   imports: [
     CommonModule,
