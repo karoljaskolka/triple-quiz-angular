@@ -18,6 +18,16 @@
       "register": "Sign Up"
     }
   },
+  "quizzes": {
+    "header": "Challenge your knowledge!",
+    "description": "Answer the questions with limited time and earn points. For each question you can get up to 5 points, based on time needed to find the correct answer.",
+    "confirm": "Confirm",
+    "next": "Next",
+    "play": "Play",
+    "scores": "Scores",
+    "close": "Close",
+    "your-score": "Your score"
+  },
   "error": {
     "unknown": "Unknown error occured",
     "internal-server-error": "Internal server error",

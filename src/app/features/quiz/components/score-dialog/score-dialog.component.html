@@ -1,0 +1,35 @@
+<div
+  data-testid-dialog
+  class="fixed top-0 left-0 right-0 bottom-0 bg-primary bg-opacity-95 flex items-center justify-center p-5 z-40"
+>
+  <div
+    tqFocus
+    class="w-full md:w-96 p-5 bg-secondary text-white rounded-md animate-fade"
+    role="dialog"
+    tabIndex="0"
+  >
+    <div class="flex justify-end items-center mb-4">
+      <button
+        data-testid-times
+        class="text-xl hover:text-tertiary"
+        (click)="onClose()"
+      >
+        &times;
+      </button>
+    </div>
+    <div class="mb-8 flex flex-col justify-center items-center">
+      <span class="mb-6 text-xl">{{ "quizzes.your-score" | translate }}</span>
+      <span data-testid-score class="mb-6 text-4xl font-bold text-tertiary"
+        >{{ score }} / {{ maxScore }}</span
+      >
+      <span data-testid-percentage class="text-2xl font-bold"
+        >{{ scorePercentage }} %</span
+      >
+    </div>
+    <div class="flex justify-center">
+      <button data-testid-close tqBtn (click)="onClose()">
+        {{ "quizzes.close" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

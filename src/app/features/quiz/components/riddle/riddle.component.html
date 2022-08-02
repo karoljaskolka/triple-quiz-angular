@@ -1,0 +1,25 @@
+<div>
+  <tq-timer
+    class="mb-4 md:mb-8 flex justify-center"
+    [counter]="timeLeft"
+    [max]="MAX_TIME"
+    (interval)="onInterval($event)"
+  ></tq-timer>
+  <tq-question class="mb-4 md:mb-8 block">
+    <tq-translation [entity]="question" property="question"></tq-translation>
+  </tq-question>
+  <tq-answers [confirmed]="confirmed" [question]="question"></tq-answers>
+  <button
+    data-testid-button
+    tqBtn
+    (click)="confirmed ? next() : check()"
+    class="mt-4 md:mt-8 p-4 md:p-6"
+  >
+    <ng-container *ngIf="confirmed">
+      {{ "quizzes.next" | translate }}
+    </ng-container>
+    <ng-container *ngIf="!confirmed">
+      {{ "quizzes.confirm" | translate }}
+    </ng-container>
+  </button>
+</div>

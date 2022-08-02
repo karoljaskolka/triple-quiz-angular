@@ -1,0 +1,26 @@
+<tq-container>
+  <div
+    class="p-5 flex items-center full-page animate-fade"
+    *ngIf="questions$ | async as questions; else Loading"
+  >
+    <tq-riddle
+      (onNext)="nextQuestion($event)"
+      class="flex-1"
+      [question]="questions[currentIndex]"
+      [lastQuestion]="currentIndex === questions.length - 1"
+      [maxPoints]="MAX_POINTS"
+    ></tq-riddle>
+  </div>
+  <ng-template #Loading>
+    <div class="p-5 full-page flex items-center justify-center">
+      <tq-spinner class="block" size="lg"></tq-spinner>
+    </div>
+  </ng-template>
+  <tq-score-dialog
+    *ngIf="dialogOpen"
+    (close)="closeDialog()"
+    [score]="score"
+    [maxScore]="total * MAX_POINTS"
+    [scorePercentage]="scorePercentage"
+  ></tq-score-dialog>
+</tq-container>

@@ -18,6 +18,16 @@
       "register": "Zarejestruj się"
     }
   },
+  "quizzes": {
+    "header": "Sprawdź swoją wiedzę!",
+    "description": "Odpowiadaj na pytania z ograniczonym czasem i zdobywaj punkty. Za każde pytanie do zdobycia jest do 5 punktów w zależności od szybkości odpowiedzi.",
+    "confirm": "Potwierdź",
+    "next": "Dalej",
+    "play": "Zagraj",
+    "scores": "Wyniki",
+    "close": "Zamknij",
+    "your-score": "Twój wynik"
+  },
   "error": {
     "unknown": "Wystąpił nieznany błąd",
     "internal-server-error": "Błąd serwera",

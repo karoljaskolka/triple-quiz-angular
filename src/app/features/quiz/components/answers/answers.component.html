@@ -1,0 +1,18 @@
+<div class="flex flex-wrap -m-2 md:-m-4">
+  <tq-answer
+    *ngFor="let index of indexes"
+    [checked]="checkedIndex === index"
+    [correct]="confirmed && index === question?.correct"
+    [incorrect]="
+      confirmed && checkedIndex === index && index !== question?.correct
+    "
+    [disabled]="confirmed"
+    (onAnswerCheck)="onCheck(index)"
+    class="w-full md:w-1/2 p-2 md:p-4"
+  >
+    <tq-translation
+      [entity]="question"
+      [property]="getProperty(index)"
+    ></tq-translation>
+  </tq-answer>
+</div>

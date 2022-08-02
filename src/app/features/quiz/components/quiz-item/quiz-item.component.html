@@ -1,0 +1,27 @@
+<div class="quiz-item p-5 block rounded-md bg-secondary animate-fade">
+  <div class="mb-5 text-tertiary font-bold text-xl text-center">
+    <tq-translation [entity]="quiz" property="name"></tq-translation>
+  </div>
+  <div class="mb-5 text-contemporary font-thin text-sm text-center">
+    <tq-translation [entity]="quiz" property="description"></tq-translation>
+  </div>
+  <div class="flex justify-between items-center">
+    <a
+      data-testid-play
+      tqBtn
+      class="mr-1"
+      [routerLink]="['/quizzes', quiz?.id]"
+    >
+      {{ "quizzes.play" | translate }}
+    </a>
+    <a
+      data-testid-scores
+      tqBtn
+      class="ml-1"
+      [outline]="true"
+      [routerLink]="['/scores', quiz?.id]"
+    >
+      {{ "quizzes.scores" | translate }}
+    </a>
+  </div>
+</div>
