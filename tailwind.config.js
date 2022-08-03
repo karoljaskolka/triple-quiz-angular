@@ -7,9 +7,13 @@ module.exports = {
       secondary: "#3A4750",
       tertiary: "#C5A51B",
       complementary: "#EEEEEE",
+      gray: "#B2BEC3",
       white: "#FFFFFF",
       red: "#C23616",
       green: "#44BD32",
+      gold: "#AF9500",
+      silver: "#B4B4B4",
+      bronze: "#AD8A56",
     },
     extend: {
       fontFamily: {

@@ -28,6 +28,10 @@
     "close": "Close",
     "your-score": "Your score"
   },
+  "scores": {
+    "top-scores": "Top 10",
+    "no-scores": "No one has solved this quiz yet"
+  },
   "error": {
     "unknown": "Unknown error occured",
     "internal-server-error": "Internal server error",

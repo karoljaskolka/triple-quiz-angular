@@ -1,0 +1,32 @@
+<div class="px-4 py-3 bg-secondary rounded-md flex flex-col animate-fade">
+  <div class="flex justify-end mb-4">
+    <fa-icon
+      *ngIf="index && index < 4"
+      data-testid-award
+      [class.text-gold]="index === 1"
+      [class.text-silver]="index === 2"
+      [class.text-bronze]="index === 3"
+      [icon]="faAward"
+      size="2x"
+    ></fa-icon>
+    <p
+      data-testid-index
+      *ngIf="index && index >= 4"
+      class="text-center text-2xl font-bold"
+    >
+      # {{ index }}
+    </p>
+  </div>
+  <p data-testid-login class="mb-6 text-lg text-center uppercase">
+    {{ score?.User?.login }}
+  </p>
+  <div class="flex text-sm justify-between">
+    <p data-testid-score class="font-bold">{{ score?.score }} %</p>
+    <div class="flex self-end text-gray">
+      <p data-testid-time class="mr-2">
+        {{ score?.createdAt | date: "HH:mm dd-MM-YY" }}
+      </p>
+      <fa-icon [icon]="faCalendarDays"></fa-icon>
+    </div>
+  </div>
+</div>

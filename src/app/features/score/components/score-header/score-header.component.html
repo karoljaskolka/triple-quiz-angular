@@ -1,0 +1,9 @@
+<div class="px-5 py-12 bg-secondary text-center">
+  <h1 class="text-4xl font-bold mb-8 uppercase animate-fade">
+    {{ "scores.top-scores" | translate }}
+  </h1>
+  <fa-icon [icon]="faRankingStar" size="3x" class="animate-fade"></fa-icon>
+  <h2 class="text-2xl font-bold animate-fade mt-8">
+    <tq-translation [entity]="quiz" property="name"></tq-translation>
+  </h2>
+</div>

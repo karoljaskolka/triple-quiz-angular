@@ -1,0 +1,14 @@
+<tq-score-header *ngIf="quiz$ | async as quiz" [quiz]="quiz"></tq-score-header>
+<tq-container>
+  <tq-score-items
+    *ngIf="scores$ | async as scores; else loader"
+    class="block p-5"
+    [scores]="scores"
+  ></tq-score-items>
+</tq-container>
+
+<ng-template #loader>
+  <div class="p-5 flex items-center justify-center h-64">
+    <tq-spinner size="lg"></tq-spinner>
+  </div>
+</ng-template>

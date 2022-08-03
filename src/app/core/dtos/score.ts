@@ -5,5 +5,6 @@ export interface ScoreDto {
   id: uuid;
   score: number;
   quizId: uuid;
-  user: UserDto;
+  User: UserDto;
+  createdAt: string;
 }

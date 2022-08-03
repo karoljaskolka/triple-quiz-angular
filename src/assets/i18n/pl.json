@@ -28,6 +28,10 @@
     "close": "Zamknij",
     "your-score": "Twój wynik"
   },
+  "scores": {
+    "top-scores": "Top 10",
+    "no-scores": "Nikt nie rozwiązał jeszcze tego quizu"
+  },
   "error": {
     "unknown": "Wystąpił nieznany błąd",
     "internal-server-error": "Błąd serwera",

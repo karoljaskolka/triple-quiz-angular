@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/quiz/quiz.module').then((m) => m.QuizModule),
   },
+  {
+    path: 'scores',
+    loadChildren: () =>
+      import('./features/score/score.module').then((m) => m.ScoreModule),
+  },
 ];
 
 @NgModule({
