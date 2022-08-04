@@ -1,0 +1,17 @@
+<div class="relative w-full h-2 rounded-md bg-gray">
+  <div
+    *ngFor="let index of indexes"
+    data-testid-circle
+    class="absolute w-6 h-6 -top-2 rounded-xl text-primary text-sm flex justify-center items-center duration-500"
+    [style.left]="getCirclePosition(index)"
+    [class.bg-tertiary]="index < currentIndex"
+    [class.bg-gray]="index >= currentIndex"
+  >
+    {{ index ? index : "" }}
+  </div>
+  <div
+    data-testid-progress
+    #progress
+    class="bg-tertiary h-2 rounded-md duration-500"
+  ></div>
+</div>

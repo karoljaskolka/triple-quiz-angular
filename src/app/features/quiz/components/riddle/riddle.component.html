@@ -1,10 +1,15 @@
 <div>
   <tq-timer
-    class="mb-4 md:mb-8 flex justify-center"
+    class="mb-8 md:mb-12 flex justify-center"
     [counter]="timeLeft"
     [max]="MAX_TIME"
     (interval)="onInterval($event)"
   ></tq-timer>
+  <tq-timeline
+    class="mb-8 md:mb-12 mx-3 block"
+    [currentIndex]="currentIndex + 1"
+    [total]="total"
+  ></tq-timeline>
   <tq-question class="mb-4 md:mb-8 block">
     <tq-translation [entity]="question" property="question"></tq-translation>
   </tq-question>

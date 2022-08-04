@@ -20,6 +20,8 @@ export class RiddleComponent {
   @Input() question?: QuestionDto;
   @Input() lastQuestion: boolean = false;
   @Input() maxPoints: number = 5;
+  @Input() total: number = 0;
+  @Input() currentIndex: number = 0;
   @Output() onNext = new EventEmitter<number>();
   @ViewChild(AnswersComponent) answers?: AnswersComponent;
 

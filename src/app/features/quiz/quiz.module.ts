@@ -17,6 +17,7 @@ import { ScoreDialogComponent } from './components/score-dialog/score-dialog.com
 import { SharedDirectivesModule } from '../../shared/directives/shared-directives.module';
 import { QuizzesHeaderComponent } from './components/quizzes-header/quizzes-header.component';
 import { QuizItemsComponent } from './components/quiz-items/quiz-items.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { QuizItemsComponent } from './components/quiz-items/quiz-items.component
     ScoreDialogComponent,
     QuizzesHeaderComponent,
     QuizItemsComponent,
+    TimelineComponent,
   ],
   imports: [
     CommonModule,
