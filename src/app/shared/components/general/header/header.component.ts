@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faAngular } from '@fortawesome/free-brands-svg-icons';
+import { TokenService } from '../../../../core/services/token.service';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'tq-header',
@@ -9,4 +12,12 @@ import { faAngular } from '@fortawesome/free-brands-svg-icons';
 })
 export class HeaderComponent {
   faAngular = faAngular;
+  faRightFromBracket = faRightFromBracket;
+
+  constructor(private tokenService: TokenService, private router: Router) {}
+
+  logout() {
+    this.tokenService.clearToken();
+    this.router.navigate(['/']);
+  }
 }

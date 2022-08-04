@@ -10,6 +10,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { NotificationComponent } from './notification/notification.component';
 import { LanguageSwitchComponent } from './language-switch/language-switch.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SharedDirectivesModule } from '../../directives/shared-directives.module';
+import { SharedComponentsModule } from '../shared/shared-components.module';
 
 const COMPONENTS = [
   FooterComponent,
@@ -22,7 +24,14 @@ const COMPONENTS = [
 
 @NgModule({
   declarations: [COMPONENTS],
-  imports: [CommonModule, TranslateModule, RouterModule, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    RouterModule,
+    FontAwesomeModule,
+    SharedDirectivesModule,
+    SharedComponentsModule,
+  ],
   exports: [COMPONENTS],
 })
 export class SharedGeneralComponentsModule {}

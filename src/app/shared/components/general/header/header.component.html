@@ -1,7 +1,18 @@
-<header class="p-5 font-press-start flex justify-between">
+<header class="p-5 flex justify-between">
   <a data-testid-logo [routerLink]="['/']">
     <fa-icon [icon]="faAngular" size="lg"></fa-icon>
     <span class="ml-2">TRIPLE QUIZ</span>
   </a>
-  <tq-language-switch></tq-language-switch>
+  <span class="flex">
+    <tq-language-switch></tq-language-switch>
+    <button
+      data-testid-logout
+      *tqAuthenticated
+      (click)="logout()"
+      aria-label="logout"
+      class="ml-4 hover:text-tertiary duration-300"
+    >
+      <fa-icon [icon]="faRightFromBracket"></fa-icon>
+    </button>
+  </span>
 </header>
