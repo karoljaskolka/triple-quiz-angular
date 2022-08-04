@@ -46,7 +46,8 @@
       "required": "Field is required",
       "password-minlength": "Password must contain at least {{length}} characters",
       "password-match": "Confirm password does not match password"
-    }
+    },
+    "page-not-found": "404: Page not found"
   },
   "warning": {
     "access-denied": "Access denied",

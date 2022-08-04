@@ -46,7 +46,8 @@
       "required": "Pole jest wymagane",
       "password-minlength": "Hasło musi zawierać przynajmniej {{length}} znaków",
       "password-match": "Podane hasła są różne"
-    }
+    },
+    "page-not-found": "404: Strona nie znaleziona"
   },
   "warning": {
     "access-denied": "Brak dostępu",
