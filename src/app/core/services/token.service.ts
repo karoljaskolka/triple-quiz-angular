@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import { TokenClaimsDto } from '../dtos/token-claims';
 import { Role } from '../types/role';
+import { Subject } from 'rxjs';
 import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
+  private tokenChange = new Subject<void>();
+  tokenChange$ = this.tokenChange.asObservable();
+
   setToken(token: string): void {
     localStorage.setItem('jwt_token', token);
+    this.tokenChange.next();
   }
 
   getToken(): string | null {
@@ -17,6 +22,7 @@ export class TokenService {
 
   clearToken(): void {
     localStorage.removeItem('jwt_token');
+    this.tokenChange.next();
   }
 
   getUserRole(): Role | null {
