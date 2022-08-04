@@ -35,7 +35,7 @@ describe('AnswerComponent', () => {
     const answer = spec.query('[data-testid-answer]');
 
     expect(answer).not.toHaveClass('bg-secondary');
-    expect(answer).toHaveClass('bg-tertiary');
+    expect(answer).toHaveClass('bg-gray');
   });
 
   it("should have 'correct' background styling", () => {

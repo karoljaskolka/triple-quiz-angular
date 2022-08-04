@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { QuizDto } from '../../../../core/dtos/quiz';
+import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'tq-quiz-item',
@@ -9,4 +10,6 @@ import { QuizDto } from '../../../../core/dtos/quiz';
 })
 export class QuizItemComponent {
   @Input() quiz?: QuizDto;
+
+  faGamepad = faGamepad;
 }

@@ -1,4 +1,5 @@
 import { RouterTestingModule } from '@angular/router/testing';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { TranslateService } from '@ngx-translate/core';
 import { QuizDto } from '../../../../core/dtos/quiz';
@@ -13,7 +14,7 @@ describe('QuizItemComponent', () => {
     component: QuizItemComponent,
     declarations: [TranslateMockPipe, TranslationComponent, AnchorComponent],
     mocks: [TranslateService],
-    imports: [RouterTestingModule],
+    imports: [RouterTestingModule, FontAwesomeModule],
     detectChanges: false,
   });
 

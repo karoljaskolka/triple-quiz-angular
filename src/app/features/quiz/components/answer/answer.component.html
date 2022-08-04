@@ -2,10 +2,10 @@
   data-testid-answer
   class="w-full p-3 md:p-6 text-center rounded-md duration-500"
   [class.bg-secondary]="!checked && !correct && !incorrect"
-  [class.bg-tertiary]="checked"
+  [class.text-primary]="checked && !correct && !incorrect"
+  [class.bg-gray]="checked"
   [class.bg-green]="correct"
   [class.bg-red]="incorrect"
-  [class.bg-opacity-75]="checked"
   [class.cursor-not-allowed]="disabled"
   [disabled]="disabled"
   (click)="onAnswerCheck.emit()"
