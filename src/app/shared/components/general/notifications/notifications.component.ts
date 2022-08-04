@@ -25,7 +25,7 @@ export class NotificationsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.notificationService.notify().subscribe((notification) => {
+    this.notificationService.notification$.subscribe((notification) => {
       this.notifications.push(notification);
       this.delayDestroy(notification);
       this.cdRef.markForCheck();

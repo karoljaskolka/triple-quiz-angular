@@ -14,7 +14,7 @@ export class NotificationServiceMockComponent implements OnInit, OnDestroy {
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
-    this.notifSub$ = this.notificationService.notify().subscribe((res) => {
+    this.notifSub$ = this.notificationService.notification$.subscribe((res) => {
       this.notification = res;
     });
   }

@@ -9,7 +9,8 @@ let UNIQUE_ID = 1;
   providedIn: 'root',
 })
 export class NotificationService {
-  private notification$ = new Subject<NotificationDto>();
+  private notification = new Subject<NotificationDto>();
+  notification$ = this.notification.asObservable();
 
   error(message: string, delay: number = 2000) {
     this.pushNotification(message, delay, NotificationType.Error);
@@ -37,10 +38,6 @@ export class NotificationService {
   }
 
   private next(notification: NotificationDto) {
-    this.notification$.next(notification);
-  }
-
-  notify() {
-    return this.notification$.asObservable();
+    this.notification.next(notification);
   }
 }

@@ -1,11 +1,27 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
-import { NotificationDto } from '../../../../core/dtos/notification';
+import {
+  Spectator,
+  createComponentFactory,
+  mockProvider,
+} from '@ngneat/spectator/jest';
+import { NotificationService } from '../../../../core/services/notification.service';
 import { NotificationsComponent } from './notifications.component';
+import { of } from 'rxjs';
+import { NotificationType } from '../../../../core/types/notification-type';
+
+const NotificationMockService = {
+  notification$: of({
+    id: '1',
+    message: 'Error',
+    type: NotificationType.Error,
+    delay: 1000,
+  }),
+};
 
 describe('NotificationsComponent', () => {
   let spec: Spectator<NotificationsComponent>;
   const createComponent = createComponentFactory({
     component: NotificationsComponent,
+    providers: [mockProvider(NotificationService, NotificationMockService)],
     shallow: true,
     detectChanges: false,
   });
@@ -20,16 +36,26 @@ describe('NotificationsComponent', () => {
   });
 
   it('should render tq-notification components', () => {
-    spec.setInput('notifications', [{}, {}] as NotificationDto[]);
-
     const notifications = spec.queryAll('tq-notification');
 
-    expect(notifications).toHaveLength(2);
+    expect(notifications).toHaveLength(1);
+  });
+});
+
+describe('NotificationsComponent - EMPTY', () => {
+  let spec: Spectator<NotificationsComponent>;
+  const createComponent = createComponentFactory({
+    component: NotificationsComponent,
+    shallow: true,
+    detectChanges: false,
+  });
+
+  beforeEach(() => {
+    spec = createComponent();
+    spec.detectChanges();
   });
 
   it('should not render div when notifications are empty array', () => {
-    spec.setInput('notifications', [] as NotificationDto[]);
-
     const div = spec.query('[data-testid-notifications]');
 
     expect(div).toBeFalsy();
