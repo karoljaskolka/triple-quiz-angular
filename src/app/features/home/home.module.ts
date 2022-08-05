@@ -10,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 import { SharedFormComponentsModule } from '../../shared/components/form/shared-form-components.module';
-import { SharedComponentsModule } from '../../shared/components/shared/shared-components.module';
+import { SharedCommonComponentsModule } from '../../shared/components/common/shared-common-components.module';
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, RegisterComponent],
@@ -19,7 +19,7 @@ import { SharedComponentsModule } from '../../shared/components/shared/shared-co
     HomeRoutingModule,
     TranslateModule,
     SharedFormComponentsModule,
-    SharedComponentsModule,
+    SharedCommonComponentsModule,
     ReactiveFormsModule,
   ],
 })

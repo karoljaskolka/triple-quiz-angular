@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ScoreRoutingModule } from './score-routing.module';
 import { ScoreComponent } from './views/score/score.component';
-import { SharedComponentsModule } from '../../shared/components/shared/shared-components.module';
+import { SharedCommonComponentsModule } from '../../shared/components/common/shared-common-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { ScoreItemComponent } from './components/score-item/score-item.component';
 import { ScoreHeaderComponent } from './components/score-header/score-header.component';
@@ -20,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     CommonModule,
     ScoreRoutingModule,
-    SharedComponentsModule,
+    SharedCommonComponentsModule,
     TranslateModule,
     FontAwesomeModule,
   ],

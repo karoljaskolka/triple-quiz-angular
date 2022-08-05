@@ -1,6 +1,6 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslationComponent } from '../../../../shared/components/shared/translation/translation.component';
+import { TranslationComponent } from '../../../../shared/components/common/translation/translation.component';
 import { TranslateMockPipe } from '../../../../utils/mocks/translate.pipe.mock';
 import { AnswersComponent } from '../answers/answers.component';
 import { QuestionComponent } from '../question/question.component';

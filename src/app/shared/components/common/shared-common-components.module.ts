@@ -19,4 +19,4 @@ const COMPONENTS = [
   imports: [CommonModule],
   exports: [COMPONENTS],
 })
-export class SharedComponentsModule {}
+export class SharedCommonComponentsModule {}

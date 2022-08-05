@@ -11,7 +11,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { LanguageSwitchComponent } from './language-switch/language-switch.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SharedDirectivesModule } from '../../directives/shared-directives.module';
-import { SharedComponentsModule } from '../shared/shared-components.module';
+import { SharedCommonComponentsModule } from '../common/shared-common-components.module';
 
 const COMPONENTS = [
   FooterComponent,
@@ -30,7 +30,7 @@ const COMPONENTS = [
     RouterModule,
     FontAwesomeModule,
     SharedDirectivesModule,
-    SharedComponentsModule,
+    SharedCommonComponentsModule,
   ],
   exports: [COMPONENTS],
 })

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { QuizzesComponent } from './views/quizzes/quizzes.component';
 import { QuizItemComponent } from './components/quiz-item/quiz-item.component';
-import { SharedComponentsModule } from '../../shared/components/shared/shared-components.module';
+import { SharedCommonComponentsModule } from '../../shared/components/common/shared-common-components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { QuizComponent } from './views/quiz/quiz.component';
@@ -39,7 +39,7 @@ import { TimelineComponent } from './components/timeline/timeline.component';
     TranslateModule,
     QuizRoutingModule,
     FontAwesomeModule,
-    SharedComponentsModule,
+    SharedCommonComponentsModule,
     SharedDirectivesModule,
   ],
 })
