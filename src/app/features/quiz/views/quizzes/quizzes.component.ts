@@ -1,7 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, map, take } from 'rxjs';
 import { QuizDto } from '../../../../core/dtos/quiz';
-import { ResourceService } from '../../../../core/services/resource.service';
+import { loadQuizzes } from '../../../../core/store/quizzes/quizzes.actions';
+import {
+  selectQuizzes,
+  selectQuizzesLoaded,
+} from '../../../../core/store/quizzes/quizzes.selectors';
+import { AppState } from '../../../../core/store/state';
 
 @Component({
   selector: 'tq-quizzes',
@@ -12,11 +18,19 @@ import { ResourceService } from '../../../../core/services/resource.service';
 export class QuizzesComponent implements OnInit {
   quizzes$?: Observable<QuizDto[]>;
 
-  constructor(private resourceService: ResourceService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.quizzes$ = this.resourceService
-      .getResources<QuizDto>('quizzes')
-      .pipe(map((res) => res.results));
+    this.store
+      .select(selectQuizzesLoaded)
+      .pipe(
+        take(1),
+        map((loaded) => {
+          if (!loaded) this.store.dispatch(loadQuizzes());
+        })
+      )
+      .subscribe();
+
+    this.quizzes$ = this.store.select(selectQuizzes);
   }
 }

@@ -14,6 +14,10 @@ import {
 
 import { SharedGeneralComponentsModule } from './shared/components/general/shared-general-components.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { quizzesReducer } from './core/store/quizzes/quizzes.reducers';
+import { QuizzesEffects } from './core/store/quizzes/quizzes.effects';
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -34,6 +38,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     }),
     AppRoutingModule,
     SharedGeneralComponentsModule,
+    StoreModule.forRoot({ quizzesState: quizzesReducer }),
+    EffectsModule.forRoot([QuizzesEffects]),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
