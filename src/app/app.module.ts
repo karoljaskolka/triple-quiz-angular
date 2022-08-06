@@ -21,7 +21,7 @@ import { QuizzesEffects } from './core/store/quizzes/quizzes.effects';
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/');
 }
 
 @NgModule({
