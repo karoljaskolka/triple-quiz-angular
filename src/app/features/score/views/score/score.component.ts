@@ -2,16 +2,15 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map, Observable, take } from 'rxjs';
-import { QuizDto } from '../../../../core/dtos/quiz';
-import { ScoreDto } from '../../../../core/dtos/score';
-import { ResourceService } from '../../../../core/services/resource.service';
-import { loadQuizzes } from '../../../../core/store/quizzes/quizzes.actions';
+import { QuizDto, ScoreDto } from '../../../../core/dtos';
+import { ResourceService } from '../../../../core/services';
 import {
+  loadQuizzes,
   selectQuiz,
   selectQuizzesLoaded,
-} from '../../../../core/store/quizzes/quizzes.selectors';
-import { AppState } from '../../../../core/store/state';
-import { uuid } from '../../../../core/types/uuid';
+  AppState,
+} from '../../../../core/store';
+import { uuid } from '../../../../core/types';
 
 @Component({
   selector: 'tq-score',

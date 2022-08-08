@@ -1,5 +1,4 @@
-import { Role } from '../../core/types/role';
-import { uuid } from '../../core/types/uuid';
+import { Role, uuid } from '../../core/types';
 
 export interface UserDto {
   id: uuid;

@@ -1,6 +1,6 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { QuizItemsComponent } from './quiz-items.component';
-import { QuizDto } from '../../../../core/dtos/quiz';
+import { QuizDto } from '../../../../core/dtos';
 
 describe('QuizItemsComponent', () => {
   let spec: Spectator<QuizItemsComponent>;

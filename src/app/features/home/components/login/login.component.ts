@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../core/services/auth.service';
-import { NotificationService } from '../../../../core/services/notification.service';
-import { TokenService } from '../../../../core/services/token.service';
-import { Role } from '../../../../core/types/role';
+import {
+  AuthService,
+  NotificationService,
+  TokenService,
+} from '../../../../core/services';
+import { Role } from '../../../../core/types';
 
 @Component({
   selector: 'tq-login',

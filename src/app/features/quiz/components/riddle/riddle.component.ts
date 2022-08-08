@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { QuestionDto } from '../../../../core/dtos/question';
+import { QuestionDto } from '../../../../core/dtos';
 import { AnswersComponent } from '../answers/answers.component';
 
 @Component({

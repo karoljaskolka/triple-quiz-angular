@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, map, take } from 'rxjs';
-import { QuizDto } from '../../../../core/dtos/quiz';
-import { loadQuizzes } from '../../../../core/store/quizzes/quizzes.actions';
+import { QuizDto } from '../../../../core/dtos';
 import {
+  loadQuizzes,
   selectQuizzes,
   selectQuizzesLoaded,
-} from '../../../../core/store/quizzes/quizzes.selectors';
-import { AppState } from '../../../../core/store/state';
+  AppState,
+} from '../../../../core/store';
 
 @Component({
   selector: 'tq-quizzes',

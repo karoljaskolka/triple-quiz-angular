@@ -2,7 +2,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { TranslateService } from '@ngx-translate/core';
-import { QuizDto } from '../../../../core/dtos/quiz';
+import { QuizDto } from '../../../../core/dtos';
 import { AnchorComponent } from '../../../../shared/components/common/button/button.component';
 import { TranslationComponent } from '../../../../shared/components/common/translation/translation.component';
 import { TranslateMockPipe } from '../../../../utils/mocks/translate.pipe.mock';

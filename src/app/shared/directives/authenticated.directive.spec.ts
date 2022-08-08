@@ -4,7 +4,7 @@ import {
   createDirectiveFactory,
   mockProvider,
 } from '@ngneat/spectator/jest';
-import { TokenService } from '../../core/services/token.service';
+import { TokenService } from '../../core/services';
 import { of } from 'rxjs';
 
 const TokenServiceMockAuthenticated = {

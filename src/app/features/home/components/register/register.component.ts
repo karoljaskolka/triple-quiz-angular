@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../core/services/auth.service';
-import { NotificationService } from '../../../../core/services/notification.service';
+import { AuthService, NotificationService } from '../../../../core/services';
 import { matchPassword } from '../../../../utils/validators';
 
 @Component({

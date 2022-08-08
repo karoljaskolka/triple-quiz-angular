@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { uuid } from '../../../../core/types/uuid';
-import { QuizDto } from '../../../../core/dtos/quiz';
+import { uuid } from '../../../../core/types';
+import { QuizDto } from '../../../../core/dtos';
 
 @Component({
   selector: 'tq-quiz-items',

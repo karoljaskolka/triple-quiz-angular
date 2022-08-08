@@ -1,7 +1,7 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { TranslateMockPipe } from '../../../../utils/mocks/translate.pipe.mock';
-import { NotificationDto } from '../../../../core/dtos/notification';
-import { NotificationType } from '../../../../core/types/notification-type';
+import { NotificationDto } from '../../../../core/dtos';
+import { NotificationType } from '../../../../core/types';
 import { NotificationComponent } from './notification.component';
 
 describe('NotificationComponent', () => {

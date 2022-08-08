@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { NotificationDto } from '../../../../core/dtos/notification';
+import { NotificationDto } from '../../../../core/dtos';
 
 @Component({
   selector: 'tq-notification',

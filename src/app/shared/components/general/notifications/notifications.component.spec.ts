@@ -3,10 +3,10 @@ import {
   createComponentFactory,
   mockProvider,
 } from '@ngneat/spectator/jest';
-import { NotificationService } from '../../../../core/services/notification.service';
+import { NotificationService } from '../../../../core/services';
 import { NotificationsComponent } from './notifications.component';
 import { of } from 'rxjs';
-import { NotificationType } from '../../../../core/types/notification-type';
+import { NotificationType } from '../../../../core/types';
 
 const NotificationMockService = {
   notification$: of({

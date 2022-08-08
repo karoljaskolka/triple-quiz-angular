@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { Locale } from '../../../../core/types/locale';
+import { Locale } from '../../../../core/types';
 
 @Component({
   selector: 'tq-language-switch',

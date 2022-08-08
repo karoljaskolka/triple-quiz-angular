@@ -1,6 +1,6 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { TranslateService } from '@ngx-translate/core';
-import { Locale } from '../../../../core/types/locale';
+import { Locale } from '../../../../core/types';
 import { TranslationComponent } from './translation.component';
 
 describe('TranslationComponent', () => {

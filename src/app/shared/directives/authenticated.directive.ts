@@ -5,7 +5,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { startWith, Subscription } from 'rxjs';
-import { TokenService } from '../../core/services/token.service';
+import { TokenService } from '../../core/services';
 
 @Directive({
   selector: '[tqAuthenticated]',

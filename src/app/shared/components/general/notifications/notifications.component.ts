@@ -5,9 +5,9 @@ import {
   OnInit,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { uuid } from '../../../../core/types/uuid';
-import { NotificationDto } from '../../../../core/dtos/notification';
-import { NotificationService } from '../../../../core/services/notification.service';
+import { uuid } from '../../../../core/types';
+import { NotificationDto } from '../../../../core/dtos';
+import { NotificationService } from '../../../../core/services';
 
 @Component({
   selector: 'tq-notifications',

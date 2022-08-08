@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { NotificationDto } from '../../core/dtos/notification';
-import { NotificationService } from '../../core/services/notification.service';
+import { NotificationDto } from '../../core/dtos';
+import { NotificationService } from '../../core/services';
 
 @Component({
   selector: 'tq-notification-service-mock',

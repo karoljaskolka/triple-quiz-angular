@@ -7,8 +7,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { startWith, Subscription } from 'rxjs';
-import { Locale } from '../../../../core/types/locale';
+import { Subscription } from 'rxjs';
+import { Locale } from '../../../../core/types';
 
 @Component({
   selector: 'tq-translation',

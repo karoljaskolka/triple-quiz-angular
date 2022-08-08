@@ -1,6 +1,6 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 import { ScoreItemsComponent } from './score-items.component';
-import { ScoreDto } from '../../../../core/dtos/score';
+import { ScoreDto } from '../../../../core/dtos';
 import { TranslateMockPipe } from '../../../../utils/mocks/translate.pipe.mock';
 
 describe('ScoreItemsComponent', () => {

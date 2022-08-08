@@ -13,7 +13,7 @@ import {
 } from '@angular/common/http';
 
 import { SharedGeneralComponentsModule } from './shared/components/general/shared-general-components.module';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { AuthInterceptor } from './core/interceptors';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { quizzesReducer } from './core/store/quizzes/quizzes.reducers';

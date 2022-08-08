@@ -6,10 +6,9 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
-import { ScoreDto } from '../../../../core/dtos/score';
-import { QuizDto } from '../../../../core/dtos/quiz';
-import { ResourceService } from '../../../../core/services/resource.service';
-import { uuid } from '../../../../core/types/uuid';
+import { ScoreDto, QuizDto } from '../../../../core/dtos';
+import { ResourceService } from '../../../../core/services';
+import { uuid } from '../../../../core/types';
 
 @Component({
   selector: 'tq-quiz',

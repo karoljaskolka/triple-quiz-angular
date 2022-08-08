@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ScoreDto } from '../../../../core/dtos/score';
+import { ScoreDto } from '../../../../core/dtos';
 import { faAward, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

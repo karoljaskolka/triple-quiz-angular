@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { QuizDto } from '../../../../core/dtos/quiz';
+import { QuizDto } from '../../../../core/dtos';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
