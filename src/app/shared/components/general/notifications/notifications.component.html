@@ -7,5 +7,6 @@
     class="mb-5"
     *ngFor="let notification of notifications; trackBy: trackById"
     [notification]="notification"
+    (close)="removeNotification($event)"
   ></tq-notification>
 </div>

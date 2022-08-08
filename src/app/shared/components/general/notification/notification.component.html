@@ -1,5 +1,5 @@
-<div
-  class="px-3 py-2 bg-opacity-75 border-l-4 text-white rounded-md w-64 z-50"
+<button
+  class="px-3 py-2 bg-opacity-75 border-l-4 text-white text-left rounded-md w-64 z-50"
   *ngIf="notification"
   data-testid-notification
   [class.bg-red]="notification.type === 'Error'"
@@ -8,6 +8,7 @@
   [class.border-tertiary]="notification.type === 'Warning'"
   [class.bg-green]="notification.type === 'Success'"
   [class.border-green]="notification.type === 'Success'"
+  (click)="onClose()"
 >
   <p *ngIf="notification.type" class="font-medium mb-1">
     {{ "general." + notification.type.toLowerCase() | translate }}
@@ -20,4 +21,4 @@
       {{ "error.unknown" | translate }}
     </ng-container>
   </p>
-</div>
+</button>

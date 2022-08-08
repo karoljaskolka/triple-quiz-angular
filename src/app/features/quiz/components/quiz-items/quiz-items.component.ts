@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { uuid } from '../../../../core/types/uuid';
 import { QuizDto } from '../../../../core/dtos/quiz';
 
 @Component({
@@ -9,4 +10,8 @@ import { QuizDto } from '../../../../core/dtos/quiz';
 })
 export class QuizItemsComponent {
   @Input() quizzes: QuizDto[] = [];
+
+  trackById(index: number, quiz: QuizDto): uuid {
+    return quiz.id;
+  }
 }

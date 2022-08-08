@@ -32,12 +32,14 @@ export class NotificationsComponent implements OnInit {
     });
   }
 
+  removeNotification(id: string) {
+    this.notifications = this.notifications.filter((n) => n.id !== id);
+    this.cdRef.markForCheck();
+  }
+
   private delayDestroy(notification: NotificationDto) {
     setTimeout(() => {
-      this.notifications = this.notifications.filter(
-        (n) => n.id !== notification.id
-      );
-      this.cdRef.markForCheck();
+      this.removeNotification(notification.id);
     }, notification.delay);
   }
 

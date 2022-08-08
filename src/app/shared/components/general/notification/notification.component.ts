@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { NotificationDto } from '../../../../core/dtos/notification';
 
 @Component({
@@ -9,4 +15,10 @@ import { NotificationDto } from '../../../../core/dtos/notification';
 })
 export class NotificationComponent {
   @Input() notification?: NotificationDto;
+
+  @Output() close = new EventEmitter<string>();
+
+  onClose() {
+    if (this.notification) this.close.emit(this.notification.id);
+  }
 }

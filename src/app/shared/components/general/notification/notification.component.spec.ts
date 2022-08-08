@@ -27,11 +27,11 @@ describe('NotificationComponent', () => {
       type: NotificationType.Error,
     } as NotificationDto);
 
-    const div = spec.query('[data-testid-notification]');
+    const button = spec.query('button[data-testid-notification]');
 
-    expect(div).toHaveText('error-message');
-    expect(div).toHaveClass('bg-red');
-    expect(div).toHaveClass('border-red');
+    expect(button).toHaveText('error-message');
+    expect(button).toHaveClass('bg-red');
+    expect(button).toHaveClass('border-red');
   });
 
   it('should render success message', () => {
@@ -40,11 +40,11 @@ describe('NotificationComponent', () => {
       type: NotificationType.Success,
     } as NotificationDto);
 
-    const div = spec.query('[data-testid-notification]');
+    const button = spec.query('button[data-testid-notification]');
 
-    expect(div).toHaveText('success-message');
-    expect(div).toHaveClass('bg-green');
-    expect(div).toHaveClass('border-green');
+    expect(button).toHaveText('success-message');
+    expect(button).toHaveClass('bg-green');
+    expect(button).toHaveClass('border-green');
   });
 
   it('should render warning message', () => {
@@ -53,18 +53,30 @@ describe('NotificationComponent', () => {
       type: NotificationType.Warning,
     } as NotificationDto);
 
-    const div = spec.query('[data-testid-notification]');
+    const button = spec.query('button[data-testid-notification]');
 
-    expect(div).toHaveText('warning-message');
-    expect(div).toHaveClass('bg-tertiary');
-    expect(div).toHaveClass('border-tertiary');
+    expect(button).toHaveText('warning-message');
+    expect(button).toHaveClass('bg-tertiary');
+    expect(button).toHaveClass('border-tertiary');
   });
 
   it('should handle notification without message', () => {
     spec.setInput('notification', {} as NotificationDto);
 
-    const div = spec.query('[data-testid-notification]');
+    const button = spec.query('button[data-testid-notification]');
 
-    expect(div).toHaveText('error.unknown');
+    expect(button).toHaveText('error.unknown');
+  });
+
+  it('should emit close on notification click', () => {
+    spec.setInput('notification', {} as NotificationDto);
+
+    const button = spec.query('button[data-testid-notification]');
+    const closeSpy = jest.spyOn(spec.component.close, 'emit');
+
+    spec.click(button!);
+    spec.detectChanges();
+
+    expect(closeSpy).toHaveBeenCalledTimes(1);
   });
 });
