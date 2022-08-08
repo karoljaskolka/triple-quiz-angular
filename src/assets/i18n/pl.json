@@ -56,6 +56,7 @@
   "success": {
     "login": "Witaj!",
     "guest": "Witaj tajemnicza osobo ;)",
-    "register": "Konto zostało utworzone"
+    "register": "Konto zostało utworzone",
+    "logout": "Wylogowano poprawnie"
   }
 }
