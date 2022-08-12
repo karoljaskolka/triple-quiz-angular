@@ -1,15 +1,15 @@
 <div class="quiz-item p-5 block rounded-md bg-secondary animate-fade">
-  <div class="mb-5 text-tertiary font-bold text-xl text-center">
+  <h2 class="mb-5 text-tertiary font-bold text-xl text-center">
     <tq-translation [entity]="quiz" property="name"></tq-translation>
-  </div>
+  </h2>
   <fa-icon
     [icon]="faGamepad"
     size="3x"
     class="block text-center mb-5 text-complementary"
   ></fa-icon>
-  <div class="mb-5 text-contemporary font-thin text-sm text-center">
+  <p class="mb-5 text-contemporary font-thin text-sm text-center">
     <tq-translation [entity]="quiz" property="description"></tq-translation>
-  </div>
+  </p>
   <div class="flex justify-between items-center">
     <a
       data-testid-play
