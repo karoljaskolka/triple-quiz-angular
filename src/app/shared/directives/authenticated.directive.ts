@@ -1,6 +1,8 @@
 import {
   ChangeDetectorRef,
   Directive,
+  OnDestroy,
+  OnInit,
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
@@ -10,7 +12,7 @@ import { TokenService } from '../../core/services';
 @Directive({
   selector: '[tqAuthenticated]',
 })
-export class AuthenticatedDirective {
+export class AuthenticatedDirective implements OnInit, OnDestroy {
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,

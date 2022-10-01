@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'host-control-mock',
+  selector: 'tq-host-control-mock',
   template: '',
 })
 export class HostControlMockComponent {

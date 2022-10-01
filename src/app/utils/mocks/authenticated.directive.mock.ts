@@ -1,6 +1,7 @@
 import {
   ChangeDetectorRef,
   Directive,
+  OnInit,
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
@@ -8,7 +9,7 @@ import {
 @Directive({
   selector: '[tqAuthenticated]',
 })
-export class AuthenticatedMockDirective {
+export class AuthenticatedMockDirective implements OnInit {
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,

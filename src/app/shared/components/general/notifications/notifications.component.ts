@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -15,7 +16,7 @@ import { NotificationService } from '../../../../core/services';
   styleUrls: ['./notifications.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotificationsComponent implements OnInit {
+export class NotificationsComponent implements OnInit, OnDestroy {
   notifications: NotificationDto[] = [];
   notificationsSub$: Subscription = Subscription.EMPTY;
 
